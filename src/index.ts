@@ -955,7 +955,7 @@ export class JsonServiceClient {
 
         return res.json().then(o => {
             var errorDto = sanitize(o);
-            if (!errorDto.responseStatus)
+            if (!errorDto.responseStatus && !errorDto.response_status)
                 throw createErrorResponse(res.status, res.statusText, type);
             if (type != null)
                 errorDto.type = type;
